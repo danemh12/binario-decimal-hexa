@@ -1,0 +1,79 @@
+#include <stdio.h>
+#include<math.h>
+#include<stdlib.h>
+
+int main(void) {	
+	int n, c, k, cas, i, j;
+	
+	
+	 
+	printf("Ingresa el numero decimal: ");
+	scanf("%d", &n);
+	
+    printf("indique el cambio a realizar \n 1)Binario \n 2)Hexadecimal \n 3)octal\n  ");
+	scanf("%d", &cas);
+	
+	
+	switch(cas)
+	{
+	 case 1:
+	 
+		{
+				
+	 for (c=7;c>=0;c--){
+		k = n>>c;
+		if (k&1){
+			printf("1");
+		}else {
+			printf("0");
+		}
+	    }
+	    
+		}
+	 break;
+	
+	 case  2:
+	 	{
+		
+	 char hexa[8];
+	 char hex[16]={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+	 int i=0;
+	 while(n>=16){
+		hexa[i]=hex[n%16];
+		n=n/16;
+		i++;
+ 	 }
+	 hexa[i]=hex[n];
+	 int j=0;
+	 for(j=i;j>=0;j--){
+		printf("%c",hexa[j]);
+	 }
+	 
+	 }
+	 break;
+	 
+	 case 3: {
+	
+	 int octal[8];
+	 int i=0;
+		while(n>=8){
+		octal[i]=n%8;
+		n=n/8;
+		i++;
+	 }
+	 octal[i]=n;
+	 int j=0;
+     for(j=i;j>=0;j--){
+		printf("%d",octal[j]);
+	 }
+
+      break;
+		}
+
+		}		
+		
+
+	return 0;
+}
+
+	
